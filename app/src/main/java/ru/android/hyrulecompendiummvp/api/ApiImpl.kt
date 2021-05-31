@@ -1,5 +1,6 @@
 package ru.android.hyrulecompendiummvp.api
 
+import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -27,6 +28,7 @@ class ApiImpl : Api {
                 level = (HttpLoggingInterceptor.Level.BODY)
             }
         )
+        .addInterceptor(OkHttpProfilerInterceptor())
         .build()
 
     private val mApi = Retrofit.Builder()

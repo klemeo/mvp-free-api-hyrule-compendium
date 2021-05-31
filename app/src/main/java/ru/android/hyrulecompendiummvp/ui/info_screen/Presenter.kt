@@ -22,7 +22,7 @@ class Presenter(
         loadHyruleInfo(category)
     }
 
-    fun loadHyruleInfo(category: String) {
+    private fun loadHyruleInfo(category: String) {
         compositeDisposable.add(
             repository.getHyruleInfo(category)
                 .flatMap {

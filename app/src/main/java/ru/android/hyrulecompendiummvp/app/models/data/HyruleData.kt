@@ -24,5 +24,5 @@ class HyruleData(
     @SerializedName("cooking_effect")
     val cookingEffect: String?,
     @SerializedName("hearts_recovered")
-    val heartsRecovered: Int?
+    val heartsRecovered: Double?
 )

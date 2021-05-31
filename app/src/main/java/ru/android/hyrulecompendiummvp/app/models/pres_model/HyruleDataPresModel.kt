@@ -11,5 +11,5 @@ class HyruleDataPresModel(
     val defense: Int?,
     val drops: List<String>?,
     val cookingEffect: String?,
-    val heartsRecovered: Int?
+    val heartsRecovered: Double?
 )
