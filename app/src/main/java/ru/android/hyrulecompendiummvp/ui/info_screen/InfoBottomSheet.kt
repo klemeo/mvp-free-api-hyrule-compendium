@@ -10,7 +10,7 @@ import ru.android.hyrulecompendiummvp.R
 class InfoBottomSheet : BottomSheetDialogFragment() {
 
     companion object {
-        const val TAG = "PaymentBottomSheet"
+        const val TAG = "InfoBottomSheet"
     }
 
     override fun onCreateView(
