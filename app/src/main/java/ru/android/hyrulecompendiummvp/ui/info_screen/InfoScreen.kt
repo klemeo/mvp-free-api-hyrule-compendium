@@ -36,7 +36,7 @@ class InfoScreen : MvpFragment<Presenter>(), View {
 
     private val monstersAdapter by lazy {
         InfoAdapter().apply {
-            onClick = { }
+            onClick = { InfoBottomSheet().show(childFragmentManager, InfoBottomSheet.TAG) }
         }
     }
 
