@@ -36,7 +36,15 @@ class InfoScreen : MvpFragment<Presenter>(), View {
 
     private val monstersAdapter by lazy {
         InfoAdapter().apply {
-            onClick = { InfoBottomSheet().show(childFragmentManager, InfoBottomSheet.TAG) }
+            onClick = {
+                InfoBottomSheet.newInstance(
+                    name = it.name,
+                    category = it.category,
+                    description = it.description,
+                    attack = it.attack,
+                    defense = it.defense
+                ).show(childFragmentManager, InfoBottomSheet.TAG)
+            }
         }
     }
 
