@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isGone
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.bottom_sheet_fragment.*
 import ru.android.hyrulecompendiummvp.R
 import ru.android.hyrulecompendiummvp.base.args
+import ru.android.hyrulecompendiummvp.ui.utils.gone
 
 class InfoBottomSheet : BottomSheetDialogFragment() {
 
@@ -58,7 +58,7 @@ class InfoBottomSheet : BottomSheetDialogFragment() {
                 attackText.text = arguments?.getInt(ARG_ATTACK).toString()
                 defenseText.text = arguments?.getInt(ARG_DEFENSE).toString()
             }
-            else -> linearLayout.isGone = true
+            else -> linearLayout.gone()
         }
         arguments?.getString(ARG_NAME)?.let { nameText.text = it }
         arguments?.getString(ARG_CATEGORY)?.let { categoryText.text = it }

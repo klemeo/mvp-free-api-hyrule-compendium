@@ -1,8 +1,6 @@
 package ru.android.hyrulecompendiummvp.ui.info_screen
 
 import android.os.Bundle
-import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.android.synthetic.main.fragment_monsters.*
@@ -11,6 +9,7 @@ import ru.android.hyrulecompendiummvp.app.models.pres_model.HyruleInfoPresModel
 import ru.android.hyrulecompendiummvp.base.ItemDecoration
 import ru.android.hyrulecompendiummvp.base.MvpFragment
 import ru.android.hyrulecompendiummvp.base.args
+import ru.android.hyrulecompendiummvp.ui.utils.*
 
 class InfoScreen : MvpFragment<Presenter>(), View {
 
@@ -71,12 +70,12 @@ class InfoScreen : MvpFragment<Presenter>(), View {
     override fun showHyruleInfo(animated: Boolean) {
         when (animated) {
             true -> {
-                recyclerView.isVisible = true
-                pbPost.isGone = true
+                recyclerView.visible()
+                pbPost.invisible()
             }
             else -> {
-                recyclerView.isGone = true
-                pbPost.isVisible = true
+                recyclerView.invisible()
+                pbPost.gone()
             }
         }
     }
