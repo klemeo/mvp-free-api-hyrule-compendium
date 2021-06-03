@@ -37,7 +37,7 @@ class Presenter(
                     view?.refreshHyruleInfo(character)
                     view?.showHyruleInfo(true)
                 }, {
-                    //.
+                    view?.showInfoDialog()
                 })
         )
     }

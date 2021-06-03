@@ -8,4 +8,6 @@ interface View {
 
     fun showHyruleInfo(animated: Boolean)
 
+    fun showInfoDialog()
+
 }
