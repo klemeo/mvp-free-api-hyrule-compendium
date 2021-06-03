@@ -81,9 +81,7 @@ class InfoScreen : MvpFragment<Presenter>(), View {
     }
 
     override fun showInfoDialog() {
-        val dialog = DialogInfo()
-        val manager = childFragmentManager
-        dialog.show(manager, "dialogInfo")
+        showDialogNoInternet()
     }
 
 }
