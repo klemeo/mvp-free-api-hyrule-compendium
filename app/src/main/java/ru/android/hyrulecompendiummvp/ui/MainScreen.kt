@@ -2,25 +2,36 @@ package ru.android.hyrulecompendiummvp.ui
 
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.fragment_main_screen.*
+import android.widget.Button
 import ru.android.hyrulecompendiummvp.R
 import ru.android.hyrulecompendiummvp.base.BaseFragment
 import ru.android.hyrulecompendiummvp.ui.info_screen.InfoScreen
 
 class MainScreen : BaseFragment(R.layout.fragment_main_screen) {
 
-    override fun initView(view: View, savedInstanceState: Bundle?) {
+    private var monstersButton: Button? = null
+    private var treasureButton: Button? = null
+    private var materialsButton: Button? = null
+    private var equipmentButton: Button? = null
 
-        monstersButton.setOnClickListener {
+    override fun initView(view: View, savedInstanceState: Bundle?) {
+        with(view) {
+            monstersButton = findViewById(R.id.monstersButton)
+            treasureButton = findViewById(R.id.treasureButton)
+            materialsButton = findViewById(R.id.materialsButton)
+            equipmentButton = findViewById(R.id.equipmentButton)
+        }
+
+        monstersButton?.setOnClickListener {
             screensManager.showScreen(InfoScreen.newInstance("monsters"))
         }
-        treasureButton.setOnClickListener {
+        treasureButton?.setOnClickListener {
             screensManager.showScreen(InfoScreen.newInstance("treasure"))
         }
-        materialsButton.setOnClickListener {
+        materialsButton?.setOnClickListener {
             screensManager.showScreen(InfoScreen.newInstance("materials"))
         }
-        equipmentButton.setOnClickListener {
+        equipmentButton?.setOnClickListener {
             screensManager.showScreen(InfoScreen.newInstance("equipment"))
         }
 

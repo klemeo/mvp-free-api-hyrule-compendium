@@ -1,7 +1,7 @@
 package ru.android.hyrulecompendiummvp.ui.info_screen
 
 import io.reactivex.Single
-import org.koin.core.inject
+import org.koin.core.component.inject
 import ru.android.hyrulecompendiummvp.app.models.data.HyruleInfo
 import ru.android.hyrulecompendiummvp.app.models.repository.Repository
 import ru.android.hyrulecompendiummvp.base.MvpPresenter

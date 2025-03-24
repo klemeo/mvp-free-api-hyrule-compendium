@@ -2,8 +2,8 @@ package ru.android.hyrulecompendiummvp.base
 
 import androidx.annotation.CallSuper
 import io.reactivex.disposables.CompositeDisposable
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import java.lang.ref.WeakReference
 
 abstract class MvpPresenter<V>(view: V) : KoinComponent {

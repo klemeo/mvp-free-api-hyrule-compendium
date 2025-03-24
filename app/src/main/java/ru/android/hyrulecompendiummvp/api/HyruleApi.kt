@@ -7,8 +7,8 @@ import ru.android.hyrulecompendiummvp.app.models.data.HyruleInfo
 
 interface HyruleApi {
 
-    @GET("category/{category}")
-    fun getCharacters(
+    @GET("compendium/category/{category}")
+    fun getCompendiumCharacters(
         @Path("category") category: String
     ): Single<HyruleInfo>
 

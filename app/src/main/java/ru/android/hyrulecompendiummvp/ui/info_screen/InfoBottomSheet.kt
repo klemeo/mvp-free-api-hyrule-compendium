@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.bottom_sheet_fragment.*
 import ru.android.hyrulecompendiummvp.R
 import ru.android.hyrulecompendiummvp.base.args
 import ru.android.hyrulecompendiummvp.ui.utils.gone
@@ -52,12 +53,19 @@ class InfoBottomSheet : BottomSheetDialogFragment() {
         inflater.inflate(R.layout.bottom_sheet_fragment, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val nameText = view.findViewById<TextView>(R.id.nameText)
+        val categoryText = view.findViewById<TextView>(R.id.categoryText)
+        val linearLayout = view.findViewById<LinearLayout>(R.id.linearLayout)
+        val attackText = view.findViewById<TextView>(R.id.attackText)
+        val defenseText = view.findViewById<TextView>(R.id.defenseText)
+        val descriptionText = view.findViewById<TextView>(R.id.descriptionText)
+
         when (arguments?.getString(ARG_CATEGORY)) {
             "equipment" -> {
                 attackText.text = arguments?.getInt(ARG_ATTACK).toString()
                 defenseText.text = arguments?.getInt(ARG_DEFENSE).toString()
             }
+
             else -> linearLayout.gone()
         }
         arguments?.getString(ARG_NAME)?.let { nameText.text = it }

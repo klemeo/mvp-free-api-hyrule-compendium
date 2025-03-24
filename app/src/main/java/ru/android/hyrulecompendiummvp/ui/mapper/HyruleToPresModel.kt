@@ -1,13 +1,13 @@
 package ru.android.hyrulecompendiummvp.ui.mapper
 
-import org.koin.core.KoinComponent
+import org.koin.core.component.KoinComponent
 import ru.android.hyrulecompendiummvp.app.models.data.HyruleInfo
 import ru.android.hyrulecompendiummvp.app.models.pres_model.*
 
 class HyruleToPresModel : KoinComponent {
 
     fun map(from: HyruleInfo) = HyruleInfoPresModel(
-        data = from.data?.map { it ->
+        data = from.data?.map {
             HyruleDataPresModel(
                 id = it.id,
                 category = it.category,
@@ -15,8 +15,8 @@ class HyruleToPresModel : KoinComponent {
                 image = it.image,
                 description = it.description,
                 commonLocations = it.commonLocations,
-                attack = it.attack,
-                defense = it.defense,
+                attack = it.properties?.attack,
+                defense = it.properties?.defense,
                 drops = it.drops,
                 cookingEffect = it.cookingEffect,
                 heartsRecovered = it.heartsRecovered

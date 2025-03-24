@@ -9,7 +9,7 @@ class RepositoryImpl(
 ) : Repository {
 
     override fun getHyruleInfo(category: String): Single<HyruleInfo> =
-        api.getCharacters(category).flatMap { response ->
+        api.getCompendiumCharacters(category).flatMap { response ->
             if (response.data != null) {
                 Single.just(response)
             } else {

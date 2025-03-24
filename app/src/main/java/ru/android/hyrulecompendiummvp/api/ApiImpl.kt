@@ -32,7 +32,7 @@ class ApiImpl : Api {
         .build()
 
     private val mApi = Retrofit.Builder()
-        .baseUrl("https://botw-compendium.herokuapp.com/api/v2/")
+        .baseUrl("https://botw-compendium.herokuapp.com/api/v3/")
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(
             RxJava2CallAdapterFactory

@@ -1,9 +1,11 @@
 package ru.android.hyrulecompendiummvp.ui.info_screen
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ProgressBar
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import kotlinx.android.synthetic.main.fragment_monsters.*
 import ru.android.hyrulecompendiummvp.R
 import ru.android.hyrulecompendiummvp.app.models.pres_model.HyruleInfoPresModel
 import ru.android.hyrulecompendiummvp.base.ItemDecoration
@@ -47,19 +49,23 @@ class InfoScreen : MvpFragment<Presenter>(), View {
         }
     }
 
+    private var buttonBack: Button? = null
+    private var recyclerView: RecyclerView? = null
+    private var pbPost: ProgressBar? = null
+
     override fun initView(view: android.view.View, savedInstanceState: Bundle?) {
-        with(recyclerView) {
-            layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
-            adapter = monstersAdapter
-            addItemDecoration(
-                ItemDecoration(
-                    2,
-                    16
-                )
-            )
+        with(view) {
+            buttonBack = findViewById(R.id.buttonBack)
+            recyclerView = findViewById(R.id.recyclerView)
+            pbPost = findViewById(R.id.pbPost)
         }
 
-        buttonBack.setOnClickListener { presenter.closeScreen() }
+        recyclerView?.apply {
+            layoutManager = GridLayoutManager(this.context, 2)
+            adapter = monstersAdapter
+        }
+
+        buttonBack?.setOnClickListener { presenter.closeScreen() }
 
     }
 
@@ -70,12 +76,13 @@ class InfoScreen : MvpFragment<Presenter>(), View {
     override fun showHyruleInfo(animated: Boolean) {
         when (animated) {
             true -> {
-                recyclerView.visible()
-                pbPost.invisible()
+                recyclerView?.visible()
+                pbPost?.invisible()
             }
+
             else -> {
-                recyclerView.invisible()
-                pbPost.gone()
+                recyclerView?.invisible()
+                pbPost?.gone()
             }
         }
     }
